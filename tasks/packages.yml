@@ -8,3 +8,10 @@
     - vim
     - build-essential
     - htop
+    - dirmngr
+    - software-properties-common
+    - ufw
+    - git
+    - wget
+    - bash-completion
+    - curl

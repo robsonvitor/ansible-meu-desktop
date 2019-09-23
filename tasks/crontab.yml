@@ -1,4 +1,8 @@
 ---
+- name: Removes a cron file from under /etc/cron.d
+  cron:
+    cron_file: ansible-pull
+    state: absent
 
 - name: Agendamento de tarefas /etc/cron.d
   cron:
