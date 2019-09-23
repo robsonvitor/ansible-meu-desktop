@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  vars:
+      URL_GIT: git@github.com:robsonvitor/ansible-meu-desktop.git
+  pre_tasks:
+    - name: Atualizando repositórios
+      apt:
+        update_cache: yes
+        upgrade: safe
+      changed_when: False
+
+  tasks:
+    - include: tasks/packages.yml
+    - include: tasks/crontab.yml
