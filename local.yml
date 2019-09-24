@@ -3,7 +3,7 @@
   vars:
       URL_GIT: git@github.com:robsonvitor/ansible-meu-desktop.git
   pre_tasks:
-    - name: Atualizando repositórios
+    - name: Atualizando repositórios e pacotes instalados
       apt:
         update_cache: yes
         upgrade: safe
