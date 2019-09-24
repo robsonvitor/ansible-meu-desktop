@@ -1,18 +1,11 @@
 ---
-- name: Remover arquivo antigo
-  file:
-    path: /etc/crond.d/ansible-pull
-    state: absent
+- name: Atributos do arquivo
+  stat:
+    path: /etc/cron.d/ansible-pull
+  register: status_arquivo
 
-  #- name: Removes a cron file from under /etc/cron.d
-  #cron:
-  #  cron_file: ansible-pull
-  #  state: absent
-
-- name: Agendamento de tarefas /etc/cron.d
-  cron:
-    special_time: daily
-    user: root
-    job: "/usr/bin/ansible-pull -o -U {{ URL_GIT }}"
-    cron_file: ansible-pull
-  tags: cron
+- name: Copiar o arquivo correto
+  copy:
+    src: ./arquivos/ansible-pull
+    dest: /etc/cron.d/ansible-pull
+  when: status_arquivo.stat.checksum != "{{ checksum_ansible_pull }}"
