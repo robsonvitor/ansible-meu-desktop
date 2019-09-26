@@ -15,3 +15,5 @@
     - wget
     - bash-completion
     - curl
+    - ethtool
+    - dnsutils
