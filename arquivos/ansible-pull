@@ -1,2 +1,0 @@
-#Ansible: None
-@daily root /usr/bin/ansible-pull -o -U git@github.com:robsonvitor/ansible-meu-desktop.git

@@ -3,9 +3,17 @@
   stat:
     path: /etc/cron.d/ansible-pull
   register: status_arquivo
-
+  tags: crontab
+  
 - name: Copiar o arquivo correto
-  copy:
-    src: ./arquivos/ansible-pull
+  template:
+    src: ./arquivos/ansible-pull.j2
     dest: /etc/cron.d/ansible-pull
-  when: status_arquivo.stat.checksum != "{{ checksum_ansible_pull }}"
+  when: status_arquivo.stat.checksum != "{{ sha256sum_ansible_pull }}"
+  tags: crontab
+
+# - name: Copiar o arquivo correto
+#   copy:
+#     src: ./arquivos/ansible-pull
+#     dest: /etc/cron.d/ansible-pull
+#   when: status_arquivo.stat.checksum != "{{ sha256sum_ansible_pull }}"
