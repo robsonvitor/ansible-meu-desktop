@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
       URL_GIT: https://github.com/robsonvitor/ansible-meu-desktop.git
-      sha256sum_ansible_pull: "b3ad1d05d437765b44cd27032113636839d4b132888428821a7c362a99a0d166"
+      sha256sum_ansible_pull: "300f5455fe8ca350a81f8202da317b7f77a8a65515f930bcae4b7d56adb192e7"
   pre_tasks:
     - name: Atualizando repositórios e pacotes instalados
       apt:
