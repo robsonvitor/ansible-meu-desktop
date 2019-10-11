@@ -3,6 +3,7 @@
 - name: Instalando pacotes
   apt:
     name: "{{ packages }}"
+    force_apt_get: yes
   vars:
     packages:
     - vim
